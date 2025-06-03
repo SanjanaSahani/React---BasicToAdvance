@@ -1,14 +1,30 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { links, social } from './data';
+import { TiThMenu } from "react-icons/ti";
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1 className='text-3xl text-center'>Navbar</h1>
+      <div className='lg:flex lg:gap-[10%] bg-white lg:w-full w-fit'>
+        <span className='flex text-4xl p-6 lg:text-3xl font-bold font-serif lg:pl-28 lg:pr-10 lg:py-2'>Coding <span className='text-blue-400'>Addict</span><span className='lg:hidden md:hidden ml-[42%]'><TiThMenu /></span></span>
+        
+        <span className='lg:flex lg:gap-9 font-serif lg:px-10 lg:py-4 text-md text-gray-400' >
+          {links.map((link) => (
+            <a className='gap-4 uppercase  hover:text-gray-500' key={link.id} href={link.url}>{link.text}</a>
+          ))}
+        </span>
+
+        <span className='invisible lg:flex lg:gap-6 lg:text-blue-400 lg:px-10 lg:py-4 lg:visible md:visible' >
+          {social.map(({ id, url, icon: Icon }) => (
+            <a className=' hover:text-blue-500' key={id} href={url}>
+              <Icon />
+            </a>
+          ))}
+        </span>
+      </div>
     </>
   )
 }
