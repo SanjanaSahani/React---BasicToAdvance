@@ -4,7 +4,7 @@ import { links, social } from './data';
 import { TiThMenu } from "react-icons/ti";
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
